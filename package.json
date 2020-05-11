@@ -1,0 +1,32 @@
+{
+  "contributors": [
+    {
+      "name": "Dexter Hardy",
+      "email": "dexter.hardy@ntegral.com",
+      "url": "http://www.ntegral.com"
+    }
+  ],
+  "name": "@ntegral/country-state-city",
+  "version": "1.0.0",
+  "description": "Full database of city, state and countries",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist",
+    "format": "prettier --write \"lib/**/*.ts\"",
+    "publish:npm": "npm publish --access public",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "city",
+    "state",
+    "country"
+  ],
+  "author": "Dexter Hardy",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^13.13.5"
+  }
+}
