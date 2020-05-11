@@ -1,8 +1,9 @@
 import countries = require("./data/countries.json");
 import states = require("./data/states.json");
 import { ICountry, IState } from "./interfaces/csc.interface";
+export { ICountry, IState } from "./interfaces/csc.interface";
 
-module.exports = {
+let csc = {
 
     getAllCountries(): ICountry[] {
         return countries as ICountry[];
@@ -22,6 +23,7 @@ module.exports = {
         return result.sort(compare);
     }
 }
+export default csc;
 
 function compare(a:any,b:any) {
     if(a.name < b.name) {

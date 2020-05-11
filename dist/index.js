@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const countries = require("./data/countries.json");
 const states = require("./data/states.json");
-module.exports = {
+let csc = {
     getAllCountries() {
         return countries;
     },
@@ -22,6 +22,7 @@ module.exports = {
         return result.sort(compare);
     }
 };
+exports.default = csc;
 function compare(a, b) {
     if (a.name < b.name) {
         return -1;
