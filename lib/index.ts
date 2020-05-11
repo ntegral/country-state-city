@@ -1,36 +1,44 @@
 import countries = require("./data/countries.json");
 import states = require("./data/states.json");
-import { ICountry, IState } from "./interfaces/csc.interface";
-export { ICountry, IState } from "./interfaces/csc.interface";
+import cities = require("./data/cities.json");
+import { ICountry, IState, ICity } from "./interfaces/csc.interface";
+export { ICountry, IState, ICity };
 
-let csc = {
+export class csc {
 
-    getAllCountries(): ICountry[] {
+    static getAllCountries(): ICountry[] {
         return countries as ICountry[];
-    },
-    getCountryById(id: number): ICountry {
+    }
+
+    static getCountryById(id: number): ICountry {
         return countries.find(c => c.id === id) as ICountry;
-    },
-    getCountryByCode(code: string): ICountry {
+    }
+
+    static getCountryByCode(code: string): ICountry {
         if (code.length === 3) {
             return countries.find(c => c.iso3 === code) as ICountry;
         } else {
             return countries.find(c => c.iso2 === code) as ICountry;
         } 
-    },
-    getStatesByCountry(countryId:number): IState[] {
-        let result = states.filter(s => s.country_id === countryId) as IState[];
-        return result.sort(compare);
     }
-}
-export default csc;
 
-function compare(a:any,b:any) {
-    if(a.name < b.name) {
-        return -1;
+    static getStatesByCountry(countryId:number): IState[] {
+        let result = states.filter(s => s.country_id === countryId) as IState[];
+        return result.sort(this.compare);
     }
-    if(a.name > b.name) {
-        return 1;
+
+    static getCitiesByState(stateId:number): ICity[] {
+        let result = cities.filter(c => c.state_id === stateId) as ICity[];
+        return result.sort(this.compare);
     }
-    return 0;
+
+    private static compare(a:any,b:any) {
+        if(a.name < b.name) {
+            return -1;
+        }
+        if(a.name > b.name) {
+            return 1;
+        }
+        return 0;
+    }
 }

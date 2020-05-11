@@ -7,7 +7,7 @@
     }
   ],
   "name": "@ntegral/country-state-city",
-  "version": "1.0.1",
+  "version": "1.0.6",
   "description": "Full database of city, state and countries",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
