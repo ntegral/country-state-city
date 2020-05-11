@@ -11,6 +11,10 @@
   "description": "Full database of city, state and countries",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntegral/country-state-city"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf dist",
